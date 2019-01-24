@@ -18,4 +18,13 @@ RSpec.describe Todo do
       end
     end
   end
+
+  describe "#complete!" do
+    it "updates completed_at" do
+      todo = Todo.create!(completed_at: nil)
+      todo.complete!
+
+      expect(todo).to be_completed
+    end
+  end
 end
