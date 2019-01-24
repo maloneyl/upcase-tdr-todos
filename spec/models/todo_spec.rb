@@ -27,4 +27,13 @@ RSpec.describe Todo do
       expect(todo).to be_completed
     end
   end
+
+  describe "#mark_incomplete!" do
+    it "updates completed_at to nil" do
+      todo = Todo.create!(completed_at: Time.current)
+      todo.mark_incomplete!
+
+      expect(todo).not_to be_completed
+    end
+  end
 end
